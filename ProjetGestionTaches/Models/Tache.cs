@@ -23,9 +23,9 @@ namespace ProjetGestionTaches.Models
         {
             int temp_PID = new Random().Next();
 
-            while (PIDList.Contains(temp_PID)) { temp_PID = new Random().Next(); }
-
-            this.PID = temp_PID;
+            //while (PIDList.Contains(temp_PID)) { temp_PID = new Random().Next(); }
+            //this.PID = temp_PID;
+            this.PID = UniqueIds.GetId();
 
             this.Proprietaire = p_Proprio;
             this.Entry = p_Entry;
@@ -42,9 +42,9 @@ namespace ProjetGestionTaches.Models
                     {
                         var exec = (Executable)Activator.CreateInstance(t);
 
-                        Thread newThread = new Thread(exec.ExecutionProgramme);
+                        Thread newThread = new Thread(() => exec.ExecutionProgramme(this.PID));
 
-                        newThread.Start(this.PID);
+                        newThread.Start();
                     }
 
                     /*
@@ -69,7 +69,6 @@ namespace ProjetGestionTaches.Models
 
                             } 
                         }
-                    }
                     */
                 }
             }

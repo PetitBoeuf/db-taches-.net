@@ -25,6 +25,10 @@ namespace ProjetGestionTaches
             entry = BaseRegistres.GetElementRegistre(5);
             tache = GestionnaireTaches.AjouterTache(user, entry);
 
+            user = AnnuaireUtilisateurs.GetUtilisateur(2);
+            entry = BaseRegistres.GetElementRegistre(4);
+            tache = GestionnaireTaches.AjouterTache(user, entry);
+
             Console.ReadKey();
         }
 

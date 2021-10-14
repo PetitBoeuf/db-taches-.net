@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace ProjetGestionTaches.Models
 {
-    interface Executable
+    class UniqueIds
     {
-        public void ExecutionProgramme(int p_PID) {}
+        protected static int id = 0;
+
+        public static int GetId()
+        {
+            id++;
+            return id;
+        }
     }
 }
